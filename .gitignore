@@ -4,3 +4,5 @@ CMakeCache.txt
 Makefile
 game_engine_math
 test/Vector3D_test
+*.so
+install_manifest.txt

@@ -27,10 +27,7 @@ struct Vector3D {
 
     Vector3D& operator /=(float s) {
         s = 1.00f / s;
-        x *= s;
-        y *= s;
-        z *= s;
-        return (*this);
+        return operator*=(s);
     }
 
     Vector3D& operator +=(const Vector3D& v) {
@@ -54,7 +51,7 @@ inline Vector3D operator *(const Vector3D& v, float s) {
 
 inline Vector3D operator /(const Vector3D& v, float s) {
     s = 1.00f / s;
-    return Vector3D(v.x * s, v.y * s, v.z * s);
+    return operator*(v, s);
 }
 
 inline Vector3D operator -(const Vector3D& v) {
