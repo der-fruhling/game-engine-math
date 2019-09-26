@@ -7,6 +7,7 @@ test/Vector3D_test
 *.so
 install_manifest.txt
 *_test
+*.cbp
 
 # copied from https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 .idea/**/workspace.xml

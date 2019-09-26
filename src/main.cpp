@@ -1,4 +1,4 @@
-#include "game_engine_math.hpp"
+#include "game_engine_math.h"
 
 int main(int argc, char const *argv[])
 {

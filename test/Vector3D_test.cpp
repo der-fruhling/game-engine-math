@@ -1,4 +1,4 @@
-#include "../src/vector/Vector3D.hpp"
+#include "../src/vector/Vector3D.h"
 #include <gtest/gtest.h>
 
 TEST(Vector3D, TryVector3D) {
