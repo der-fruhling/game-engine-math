@@ -3,3 +3,14 @@ rvm:
   - g++
 os: linux
 script: travis/cmake.sh
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: true
+      compiler: gcc
+      addons:
+        apt:
+          packages:
+            - g++
+            - libgtest-dev
