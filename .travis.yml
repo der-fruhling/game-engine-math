@@ -1,0 +1,5 @@
+language: c++
+rvm:
+  - g++
+os: linux
+script: travis/cmake.sh
