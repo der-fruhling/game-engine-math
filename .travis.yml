@@ -6,7 +6,7 @@ script: travis/cmake.sh
 matrix:
   include:
     - os: linux
-      dist: trusty
+      dist: bionic
       sudo: true
       compiler: gcc
       addons:
