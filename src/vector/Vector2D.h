@@ -42,7 +42,7 @@ struct Vector2D {
 };
 
 inline Vector2D operator *(const Vector2D& v, float s) {
-    return Vector2D(v.x * s, v.y * s);
+    return {v.x * s, v.y * s};
 }
 
 inline Vector2D operator /(const Vector2D& v, float s) {
@@ -51,11 +51,11 @@ inline Vector2D operator /(const Vector2D& v, float s) {
 }
 
 inline Vector2D operator -(const Vector2D& v) {
-    return Vector2D(-v.x, -v.y);
+    return {-v.x, -v.y};
 }
 
 inline float Magnitude(const Vector2D& v) {
-    return sqrt(v.x * v.x + v.y * v.y + 0);
+    return std::sqrt(v.x * v.x + v.y * v.y + 0);
 }
 
 inline Vector2D Normalize(const Vector2D& v) {
@@ -63,11 +63,11 @@ inline Vector2D Normalize(const Vector2D& v) {
 }
 
 inline Vector2D operator +(const Vector2D& a, const Vector2D b) {
-    return Vector2D(a.x + b.x, a.y + b.y);
+    return {a.x + b.x, a.y + b.y};
 }
 
 inline Vector2D operator -(const Vector2D& a, const Vector2D b) {
-    return Vector2D(a.x - b.x, a.y - b.y);
+    return {a.x - b.x, a.y - b.y};
 }
 
 #endif

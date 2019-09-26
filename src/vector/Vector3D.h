@@ -46,7 +46,7 @@ struct Vector3D {
 };
 
 inline Vector3D operator *(const Vector3D& v, float s) {
-    return Vector3D(v.x * s, v.y * s, v.z * s);
+    return {v.x * s, v.y * s, v.z * s};
 }
 
 inline Vector3D operator /(const Vector3D& v, float s) {
@@ -55,11 +55,11 @@ inline Vector3D operator /(const Vector3D& v, float s) {
 }
 
 inline Vector3D operator -(const Vector3D& v) {
-    return Vector3D(-v.x, -v.y, -v.z);
+    return {-v.x, -v.y, -v.z};
 }
 
 inline float Magnitude(const Vector3D& v) {
-    return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    return std::sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 }
 
 inline Vector3D Normalize(const Vector3D& v) {
@@ -67,11 +67,11 @@ inline Vector3D Normalize(const Vector3D& v) {
 }
 
 inline Vector3D operator +(const Vector3D& a, const Vector3D b) {
-    return Vector3D(a.x + b.x, a.y + b.y, a.z + b.z);
+    return {a.x + b.x, a.y + b.y, a.z + b.z};
 }
 
 inline Vector3D operator -(const Vector3D& a, const Vector3D b) {
-    return Vector3D(a.x - b.x, a.y - b.y, a.z - b.z);
+    return {a.x - b.x, a.y - b.y, a.z - b.z};
 }
 
 #endif

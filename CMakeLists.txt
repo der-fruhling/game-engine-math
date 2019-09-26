@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
+add_compile_options(-Wall)
+
 add_executable(game_engine_math 
     src/main.cpp 
     src/vector/Vector3D.cpp
