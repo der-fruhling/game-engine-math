@@ -14,3 +14,4 @@ matrix:
           packages:
             - g++
             - libgtest-dev
+            - cmake
