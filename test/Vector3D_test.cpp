@@ -1,6 +1,8 @@
 #include "../src/vector/Vector3D.h"
 #include <gtest/gtest.h>
 
+using namespace game_engine_math;
+
 TEST(Vector3D, TryVector3D) {
     Vector3D a(1.5f, 3.7f, 32.25f);
     ASSERT_EQ(1.5f, a.x);
