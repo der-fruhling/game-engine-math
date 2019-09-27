@@ -5,6 +5,8 @@
 #include <gtest/gtest.h>
 #include "../src/matrix/Matrix3D.h"
 
+using namespace game_engine_math;
+
 TEST(Matrix3D, Vector3DAccess) {
     Matrix3D m3d;
     m3d[1][1] = 5.f;
