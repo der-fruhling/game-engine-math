@@ -11,6 +11,8 @@ do { \
     ASSERT_FLOAT_EQ(res.z, exz); \
 } while(0)
 
+#define ASSERT_VECTOR3D_D_EQ(vec1, vec2) ASSERT_VECTOR3D_EQ(vec1, vec2.x, vec2.y, vec2.z)
+
 TEST(Vector3D, TryVector3D) {
     Vector3D a(1.5f, 3.7f, 32.25f);
     ASSERT_EQ(1.5f, a.x);
@@ -136,6 +138,47 @@ TEST(Vector3D, CrossProductParallel) {
     ASSERT_VECTOR3D_EQ(CrossProduct(v1, v1), 0, 0, 0);
     ASSERT_VECTOR3D_EQ(CrossProduct(v2, v2), 0, 0, 0);
     ASSERT_VECTOR3D_EQ(CrossProduct(v1, v2), 0, 0, 0);
+}
+
+TEST(Vector3D, CrossProductAntiCommutativity) {
+    Vector3D a(1, 2, 3);
+    Vector3D b(4, 5, 6);
+    ASSERT_VECTOR3D_D_EQ(CrossProduct(a, b), CrossProduct(-b, a));
+}
+
+TEST(Vector3D, CrossProductDistributiveLaw) { // it's the law
+    Vector3D a(1, 2, 3);
+    Vector3D b(4, 5, 6);
+    Vector3D c(7, 8, 9);
+
+    Vector3D r1 = CrossProduct(a, b + c),
+             r2 = CrossProduct(a, b) + CrossProduct(a, c);
+
+    ASSERT_VECTOR3D_D_EQ(r1, r2);
+}
+
+TEST(Vector3D, CrossProductScalarFactorization) {
+    Vector3D a(1, 2, 3);
+    Vector3D b(4, 5, 6);
+    float t = 7.f;
+
+    Vector3D r1 = CrossProduct(a * t, b),
+            r2 = CrossProduct(a, b * t),
+            r3 = CrossProduct(a, b) * t;
+
+    ASSERT_VECTOR3D_D_EQ(r1, r2);
+    ASSERT_VECTOR3D_D_EQ(r2, r3);
+}
+
+TEST(Vector3D, TripleProduct) {
+    Vector3D a(1, 2, 3);
+    Vector3D b(4, 5, 6);
+    Vector3D c(7, 8, 9);
+
+    Vector3D r1 = CrossProduct(a, CrossProduct(b, c)),
+             r2 = b * DotProduct(a, c) - c * DotProduct(a, b);
+
+    ASSERT_VECTOR3D_D_EQ(r1, r2);
 }
 
 int main(int argc, char **argv)
