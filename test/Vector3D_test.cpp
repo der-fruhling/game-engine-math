@@ -3,6 +3,14 @@
 
 using namespace game_engine_math;
 
+#define ASSERT_VECTOR3D_EQ(vec, exx, exy, exz) \
+do { \
+    Vector3D res = vec; \
+    ASSERT_FLOAT_EQ(res.x, exx); \
+    ASSERT_FLOAT_EQ(res.y, exy); \
+    ASSERT_FLOAT_EQ(res.z, exz); \
+} while(0)
+
 TEST(Vector3D, TryVector3D) {
     Vector3D a(1.5f, 3.7f, 32.25f);
     ASSERT_EQ(1.5f, a.x);
@@ -88,6 +96,39 @@ TEST(Vector3D, VectorNormalize) {
     ASSERT_FLOAT_EQ(b.x, 0.26726124f);
     ASSERT_FLOAT_EQ(b.y, 0.53452248f);
     ASSERT_FLOAT_EQ(b.z, 0.80178373f);
+}
+
+TEST(Vector3D, DotProductOrthogonal) {
+    Vector3D v1(0, 1, 0);
+    Vector3D v2(1, 0, 0);
+    ASSERT_FLOAT_EQ(DotProduct(v1, v2), 0.f);
+    ASSERT_FLOAT_EQ(DotProduct(v2, v1), 0.f);
+}
+
+TEST(Vector3D, DotProductParallel) {
+    Vector3D v1(3, 0, 0);
+    Vector3D v2(-5, 0, 0);
+    /**
+     * this is fine because they return floats
+     */
+    ASSERT_FLOAT_EQ(DotProduct(v1, v1), 9.f);
+    ASSERT_FLOAT_EQ(DotProduct(v2, v2), 25.f);
+    ASSERT_FLOAT_EQ(DotProduct(v1, v2), -15.f);
+}
+
+TEST(Vector3D, CrossProduct) {
+    Vector3D v1(3, 4, 5);
+    Vector3D v2(2, 1, 7);
+    Vector3D result = CrossProduct(v1, v2);
+    ASSERT_VECTOR3D_EQ(result, 23, -11, -5);
+}
+
+TEST(Vector3D, CrossProductParallel) {
+    Vector3D v1(3, 0, 0);
+    Vector3D v2(-5, 0, 0);
+    ASSERT_VECTOR3D_EQ(CrossProduct(v1, v1), 0, 0, 0);
+    ASSERT_VECTOR3D_EQ(CrossProduct(v2, v2), 0, 0, 0);
+    ASSERT_VECTOR3D_EQ(CrossProduct(v1, v2), 0, 0, 0);
 }
 
 int main(int argc, char **argv)
