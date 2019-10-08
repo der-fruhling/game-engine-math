@@ -84,6 +84,13 @@ TEST(Vector3D, ScalarDivisionSlashEquals) {
     ASSERT_FLOAT_EQ(a.z, 3.f);
 }
 
+TEST(Vector3D, VectorMultiplication) {
+    Vector3D a(1.f, 2.f, 3.f);
+    Vector3D b(4.f, 5.f, 6.f);
+    Vector3D r = a * b;
+    ASSERT_VECTOR3D_EQ(r, 4.f, 10.f, 18.f);
+}
+
 TEST(Vector3D, VectorMagnitude) {
     Vector3D a(1.f, 2.f, 3.f);
     float b = Magnitude(a);

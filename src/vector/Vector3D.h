@@ -75,6 +75,10 @@ namespace game_engine_math {
         return {a.x - b.x, a.y - b.y, a.z - b.z};
     }
 
+    inline Vector3D operator*(const Vector3D &a, const Vector3D b) {
+        return {a.x * b.x, a.y * b.y, a.z * b.z};
+    }
+
     inline float DotProduct(const Vector3D &a, const Vector3D &b) {
         return (a.x * b.x + a.y * b.y + a.z * b.z);
     }
