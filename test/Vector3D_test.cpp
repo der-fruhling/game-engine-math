@@ -181,6 +181,15 @@ TEST(Vector3D, TripleProduct) {
     ASSERT_VECTOR3D_D_EQ(r1, r2);
 }
 
+TEST(Vector3D, ProjectReject) {
+    Vector3D a(0, 1, 0);
+    Vector3D b(1, 1, 0);
+    Vector3D p = Project(a, b);
+    ASSERT_VECTOR3D_EQ(p, .5f, .5f, 0.f);
+    Vector3D r = Reject(a, b);
+    ASSERT_VECTOR3D_EQ(r, -.5f, .5f, 0.f);
+}
+
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc, argv);

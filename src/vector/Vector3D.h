@@ -89,8 +89,16 @@ namespace game_engine_math {
                 a.x * b.y - a.y * b.x};
     }
 
-    inline Vector3D Square(const Vector3D &a) {
-        return a * a;
+    inline float Square(const Vector3D &a) {
+        return DotProduct(a, a);
+    }
+
+    inline Vector3D Project(const Vector3D &a, const Vector3D &b) {
+        return b * (DotProduct(a, b) / Square(b));
+    }
+
+    inline Vector3D Reject(const Vector3D &a, const Vector3D &b) {
+        return a - Project(a, b);
     }
 }
 
