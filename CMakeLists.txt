@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
+project(game_engine_math)
 
 add_compile_options(-Wall)
 
