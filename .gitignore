@@ -9,6 +9,7 @@ install_manifest.txt
 *_test
 *.cbp
 test/*_test
+build
 
 # copied from https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 .idea/**/workspace.xml
