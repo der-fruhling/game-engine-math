@@ -3,44 +3,10 @@ project(game_engine_math)
 
 add_compile_options(-Wall)
 
-add_executable(game_engine_math 
-    src/main.cpp 
-    src/vector/Vector3D.cpp
-        src/vector/Vector3D.h
-    src/vector/Vector2D.cpp
-        src/vector/Vector2D.h
-    src/vector/VectorConv.cpp
-        src/vector/VectorConv.h
-        src/matrix/Matrix3D.cpp src/matrix/Matrix3D.h)
-add_library(game_engine_math_lib SHARED
-    src/vector/Vector3D.cpp
-        src/vector/Vector3D.h
-    src/vector/Vector2D.cpp
-        src/vector/Vector2D.h
-    src/vector/VectorConv.cpp
-        src/vector/VectorConv.h
-        src/matrix/Matrix3D.cpp src/matrix/Matrix3D.h)
+set(SOURCE_FILES src/vector/Vector3D.cpp src/vector/Vector3D.h src/vector/Vector2D.cpp src/vector/Vector2D.h src/vector/VectorConv.cpp src/vector/VectorConv.h src/matrix/Matrix3D.cpp src/matrix/Matrix3D.h)
+
+add_executable(game_engine_math src/main.cpp )
+add_library(game_engine_math_lib STATIC ${SOURCE_FILES})
 add_subdirectory(test)
-
-install(TARGETS game_engine_math_lib
-        LIBRARY
-          DESTINATION /usr/lib
-          COMPONENT Libraries
-          NAMELINK_COMPONENT Development
-        PUBLIC_HEADER
-          DESTINATION /usr/include
-          COMPONENT Development
-)
-    
-install(TARGETS game_engine_math
-       RUNTIME
-         DESTINATION /usr/bin
-         COMPONENT Executables
-         PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ
-       PUBLIC_HEADER
-         DESTINATION /usr/include
-         COMPONENT Development
-)
-
-install(FILES src/game_engine_math.h DESTINATION /usr/include/game_engine_math)
-install(FILES src/vector/Vector3D.h DESTINATION /usr/include/game_engine_math/vector)
+add_dependencies(game_engine_math game_engine_math_lib)
+target_link_libraries(game_engine_math game_engine_math_lib)
