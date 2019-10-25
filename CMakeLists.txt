@@ -3,7 +3,7 @@ project(game_engine_math)
 
 add_compile_options(-Wall)
 
-set(SOURCE_FILES src/vector/Vector3D.cpp src/vector/Vector3D.h src/vector/Vector2D.cpp src/vector/Vector2D.h src/vector/VectorConv.cpp src/vector/VectorConv.h src/matrix/Matrix3D.cpp src/matrix/Matrix3D.h src/vector/Quaternion.h src/vector/Quaternion.cpp)
+set(SOURCE_FILES src/vector/Vector3D.cpp src/vector/Vector3D.h src/vector/Vector2D.cpp src/vector/Vector2D.h src/vector/Vector4D.h src/vector/VectorConv.cpp src/vector/VectorConv.h src/matrix/Matrix3D.cpp src/matrix/Matrix3D.h src/vector/Quaternion.h src/vector/Quaternion.cpp src/matrix/Matrix4D.h src/matrix/Transform4D.h)
 
 add_executable(game_engine_math src/main.cpp)
 add_library(game_engine_math_lib STATIC ${SOURCE_FILES})
