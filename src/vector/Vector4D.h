@@ -9,6 +9,6 @@ struct Vector4D {
     float operator[](int t) {
         return ((&x)[t]);
     }
-}
+};
 
 #endif

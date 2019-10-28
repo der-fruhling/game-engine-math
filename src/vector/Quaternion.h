@@ -54,7 +54,7 @@ namespace game_engine_math {
         }
 
         inline float magnitude() {
-            return sqrt(square());
+            return std::sqrt(square());
         }
     };
 
