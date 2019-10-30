@@ -1,6 +1,8 @@
 #ifndef VECTOR3D_HPP
 #define VECTOR3D_HPP
 
+
+#include "../game_engine_math_decls.h"
 #include <cmath>
 
 namespace game_engine_math {
@@ -100,6 +102,8 @@ namespace game_engine_math {
     inline Vector3D Reject(const Vector3D &a, const Vector3D &b) {
         return a - Project(a, b);
     }
+
+    inline Vector3D operator*(const Vector3D& n, const Transform4D& H);
 }
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef QUATERNION_H
 #define QUATERNION_H
 
+#include "../game_engine_math_decls.h"
 #include "Vector3D.h"
 #include "../matrix/Matrix3D.h"
 #include <cmath>

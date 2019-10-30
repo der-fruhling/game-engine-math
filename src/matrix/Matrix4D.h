@@ -3,16 +3,29 @@
 #ifndef MATRIX4D_H
 #define MATRIX4D_H
 
+#include "../game_engine_math_decls.h"
 #include "../vector/Vector4D.h"
 
-struct Matrix4D {
-    Vector4D n[4];
+namespace game_engine_math {
+    struct Matrix4D {
+        float n[4][4];
 
-    float operator[](int x) {
-        return n[x];
-    }
+        Vector4D& operator[](int x) {
+            return *reinterpret_cast<Vector4D *>(n[x]);
+        }
 
-    float operator()(int x, int y) {
-        return n[y][x];
-    }
+        const Vector4D& operator[](int x) const {
+            return *reinterpret_cast<const Vector4D *>(n[x]);
+        }
+
+        float& operator()(int x, int y) {
+            return n[y][x];
+        }
+
+        const float& operator()(int x, int y) const {
+            return n[y][x];
+        }
+    };
 }
+
+#endif

@@ -1,6 +1,7 @@
 #ifndef VECTOR2D_HPP
 #define VECTOR2D_HPP
 
+#include "../game_engine_math_decls.h"
 #include <cmath>
 
 namespace game_engine_math {

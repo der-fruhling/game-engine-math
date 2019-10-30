@@ -6,6 +6,7 @@
 #define GAME_ENGINE_MATH_MATRIX3D_H
 
 
+#include "../game_engine_math_decls.h"
 #include "../vector/Vector3D.h"
 
 namespace game_engine_math {

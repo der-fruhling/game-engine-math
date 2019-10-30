@@ -1,6 +1,7 @@
 #ifndef VECTOR_CONV_HPP
 #define VECTOR_CONV_HPP
 
+#include "../game_engine_math_decls.h"
 #include "Vector2D.h"
 #include "Vector3D.h"
 
