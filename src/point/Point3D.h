@@ -22,6 +22,9 @@ namespace game_engine_math {
                 a.x - b.x, a.y - b.y, a.z - b.z
         };
     }
+
+    float DistPointLine(const Point3D&, const Point3D&, const Vector3D&);
+    float DistLineLine(const Point3D&, const Vector3D&, const Point3D&, const Vector3D&);
 }
 
 #endif

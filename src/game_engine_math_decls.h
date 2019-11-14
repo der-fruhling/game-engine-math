@@ -14,6 +14,7 @@ namespace game_engine_math {
     struct Transform4D;
     struct Matrix4D;
     struct Matrix3D;
+    struct Plane;
 }
 
 #endif //GAME_ENGINE_MATH_GAME_ENGINE_MATH_DECLS_H
